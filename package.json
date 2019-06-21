@@ -1,0 +1,14 @@
+{
+  "name": "rpi-cam",
+  "version": "1.0.0",
+  "description": "Stream video from a Raspberry Pi camera over WebRTC",
+  "main": "sync.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
