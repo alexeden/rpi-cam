@@ -2,13 +2,37 @@
   "name": "rpi-cam",
   "version": "1.0.0",
   "description": "Stream video from a Raspberry Pi camera over WebRTC",
-  "main": "sync.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Alex Eden",
+  "license": "MITNFA",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/alexeden/rpi-cam/issues"
+  },
+  "homepage": "https://github.com/alexeden/rpi-cam#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeden/rpi-cam.git"
+  },
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-changes": "echo 'Source will rebuild on changes' && nodemon --config nodemon.build.json",
+    "build": "rimraf dist && tsc -p src",
+    "example": "ts-node -P examples/tsconfig.json",
+    "lint": "tslint -c ./tslint.json --project examples && tslint -c ./tslint.json --project src",
+    "prepublishOnly": "npm run lint && npm run build",
+    "sync-changes": "echo 'Changes will be pushed to Raspberry Pi' && nodemon --config nodemon.sync.json"
   },
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@types/node": "^12.0.8",
+    "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
+  }
 }
