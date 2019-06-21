@@ -34,5 +34,8 @@
     "rimraf": "^2.6.3",
     "tslint": "^5.18.0",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "opencv4nodejs": "^5.0.0"
   }
 }
